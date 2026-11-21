@@ -1,0 +1,17 @@
+[*]
+[*] GTKWave Project Save File
+[*]
+[dumpfile] "uart_controller.vcd"
+[savefile] ""
+[timestart] 0
+[size] 1600 900
+[pos] -1 -1
+*-20.000000 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+tb_uart.clk
+tb_uart.rst_n
+tb_uart.uart_tx
+tb_uart.uart_rx
+tb_uart.tx_busy
+tb_uart.tx_bit_idx
+@hex
+tb_uart.tx_shift_reg

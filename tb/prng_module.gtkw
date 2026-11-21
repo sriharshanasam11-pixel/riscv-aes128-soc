@@ -1,0 +1,19 @@
+[*]
+[*] GTKWave Project Save File
+[*]
+[dumpfile] "prng_module.vcd"
+[savefile] ""
+[timestart] 0
+[size] 1600 900
+[pos] -1 -1
+*-20.000000 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+tb_prng.clk
+tb_prng.rst_n
+tb_prng.algo_sel
+tb_prng.ready
+@hex
+tb_prng.seed_in
+@hex
+tb_prng.xorshift_state
+@hex
+tb_prng.random_data_out

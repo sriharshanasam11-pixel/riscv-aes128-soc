@@ -1,0 +1,34 @@
+[*]
+[*] GTKWave Project Save File
+[*]
+[dumpfile] "aes128_accelerator.vcd"
+[savefile] ""
+[timestart] 0
+[size] 1600 900
+[pos] -1 -1
+*-20.000000 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+tb_aes_accelerator.clk
+tb_aes_accelerator.rst_n
+tb_aes_accelerator.start
+tb_aes_accelerator.mode
+tb_aes_accelerator.busy
+tb_aes_accelerator.done
+tb_aes_accelerator.valid
+tb_aes_accelerator.round_cnt
+tb_aes_accelerator.state_fsm
+@hex
+tb_aes_accelerator.key_word0
+@hex
+tb_aes_accelerator.din_word0
+@hex
+tb_aes_accelerator.round_key_word0
+@hex
+tb_aes_accelerator.round_state_word0
+@hex
+tb_aes_accelerator.dout_word0
+@hex
+tb_aes_accelerator.dout_word1
+@hex
+tb_aes_accelerator.dout_word2
+@hex
+tb_aes_accelerator.dout_word3

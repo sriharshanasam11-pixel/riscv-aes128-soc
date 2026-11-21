@@ -1,0 +1,6 @@
+Signal_Name,Direction_DUT,Direction_VIP,Width,Offset,Description
+gpio_in_pins,In,Out,32,0x00,Physical digital input pin signals sampled into GPIO_INPUT register
+gpio_out_pins,Out,In,32,0x04,Physical digital output pin drive levels driven from GPIO_OUTPUT register
+gpio_dir_reg,Out,In,32,0x08,Pin direction mask: 1 = Output pin (driven) 0 = Input pin (Hi-Z)
+gpio_set_reg,In,Out,32,0x0C,Atomic bit set register: writing 1 sets corresponding output bit to 1
+gpio_clear_reg,In,Out,32,0x10,Atomic bit clear register: writing 1 clears corresponding output bit to 0

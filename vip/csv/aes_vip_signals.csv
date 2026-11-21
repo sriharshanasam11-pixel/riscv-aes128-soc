@@ -1,0 +1,13 @@
+Signal_Name,Direction,Width,Offset,Access,Description
+wb_adr,In,8,0x00-0x34,R/W,Register byte address offset within AES address space
+reg_ctrl_start,In,1,0x00 [0],WO,Start pulse initiating AES encryption or decryption (auto-clearing)
+reg_ctrl_mode,In,1,0x00 [1],R/W,Operation mode: 0 = Encryption 1 = Decryption
+reg_ctrl_reset,In,1,0x00 [2],WO,Soft reset command re-initializing internal round registers
+reg_ctrl_irq_en,In,1,0x00 [3],R/W,Interrupt enable on completion of cryptographic operation
+reg_status_busy,Out,1,0x04 [0],RO,Busy flag: 1 = Transformation in progress (10-11 cycles)
+reg_status_done,Out,1,0x04 [1],RO,Done flag: 1 = Operation finished (cleared on next start)
+reg_status_valid,Out,1,0x04 [2],RO,Valid flag: 1 = Valid result available in DOUT registers
+reg_key0_3,In,128,0x08-0x14,R/W,128-bit secret key registers (KEY0 to KEY3)
+reg_din0_3,In,128,0x18-0x24,R/W,128-bit input block registers (Plaintext for Enc / Ciphertext for Dec)
+reg_dout0_3,Out,128,0x28-0x34,RO,128-bit output result registers (Ciphertext for Enc / Plaintext for Dec)
+aes_irq,Out,1,N/A,High,Direct hardware interrupt output asserted on DONE when IRQ_EN is set

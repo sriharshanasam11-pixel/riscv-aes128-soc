@@ -1,0 +1,7 @@
+Signal_Name,Direction_DUT,Direction_VIP,Width,Framing,Description
+uart_tx_o,Out,In,1,1 start 8 data 1 stop,Serial transmission output from SoC to console/host VIP
+uart_rx_i,In,Out,1,1 start 8 data 1 stop,Serial reception input driven by testbench stimulus VIP
+uart_irq_o,Out,In,1,Level active-high,Interrupt triggered when RX buffer full or TX FIFO empty
+reg_bauddiv,In,Out,16,Offset 0x0C,Baud rate divider register determining bit duration
+reg_status_tx_ready,Out,In,1,Offset 0x04 [1],Transmitter ready indicator: 1 = Idle can accept byte
+reg_status_rx_valid,Out,In,1,Offset 0x04 [0],Receiver valid indicator: 1 = New byte received in buffer

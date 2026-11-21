@@ -1,0 +1,34 @@
+[*]
+[*] GTKWave Project Save File
+[*]
+[dumpfile] "soc_top_full.vcd"
+[savefile] ""
+[timestart] 0
+[size] 1600 900
+[pos] -1 -1
+*-20.000000 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+tb_soc_top.clk
+tb_soc_top.rst_n
+@hex
+tb_soc_top.cpu_pc
+@hex
+tb_soc_top.wb_adr
+tb_soc_top.wb_cyc
+tb_soc_top.wb_stb
+tb_soc_top.wb_ack
+tb_soc_top.sel_rom
+tb_soc_top.sel_ram
+tb_soc_top.sel_aes
+tb_soc_top.sel_uart
+tb_soc_top.sel_spi
+tb_soc_top.aes_busy
+tb_soc_top.aes_done
+tb_soc_top.aes_valid
+@hex
+tb_soc_top.aes_dout0
+@hex
+tb_soc_top.gpio_out
+tb_soc_top.uart_tx
+tb_soc_top.spi_sck
+tb_soc_top.spi_mosi
+tb_soc_top.spi_cs_n

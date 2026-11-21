@@ -1,0 +1,23 @@
+[*]
+[*] GTKWave Project Save File
+[*]
+[dumpfile] "spi_controller.vcd"
+[savefile] ""
+[timestart] 0
+[size] 1600 900
+[pos] -1 -1
+*-20.000000 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+tb_spi_controller.clk
+tb_spi_controller.rst_n
+tb_spi_controller.spi_cs_n
+tb_spi_controller.spi_sck
+tb_spi_controller.spi_mosi
+tb_spi_controller.spi_miso
+tb_spi_controller.busy
+tb_spi_controller.tx_empty
+tb_spi_controller.rx_ready
+tb_spi_controller.bit_cnt
+@hex
+tb_spi_controller.tx_shift_reg
+@hex
+tb_spi_controller.rx_shift_reg

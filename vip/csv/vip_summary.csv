@@ -1,0 +1,8 @@
+VIP_ID,VIP_Name,Subsystem,Role,Protocol,Clock_Domain,Signal_Count,Description
+VIP_01,WB_BUS_VIP,Bus Interconnect,Master/Slave,Wishbone B4,50 MHz (clk),11,Synchronous pipelined bus VIP for CPU instruction/data transfers and peripheral memory-mapped accesses
+VIP_02,AES128_VIP,AES-128 Accelerator,Slave/Monitor,Memory-Mapped Register,50 MHz (clk),14,Cryptographic VIP checking NIST FIPS-197 Known Answer Tests (KAT) for 128-bit encryption/decryption
+VIP_03,PRNG_VIP,Hardware PRNG,Slave/Monitor,Memory-Mapped Register,50 MHz (clk),8,Pseudo-random number generator VIP verifying Galois LFSR and Xorshift32 sequence nonces
+VIP_04,SPI_VIP,SPI Master Controller,Slave (Loopback/Flash),SPI Modes 0-3,Variable (sck),4,Serial peripheral interface VIP checking synchronous byte transfers and CS timing
+VIP_05,UART_VIP,UART Controller,RX/TX Monitor,8-N-1 Serial,Baud Rate (115200),3,Asynchronous serial VIP monitoring transmission telemetry and framing integrity
+VIP_06,TIMER_VIP,System Timer,Monitor/Interrupt,Internal Counter,50 MHz (clk),4,Timer VIP verifying tick counting prescaling threshold match and IRQ assertion
+VIP_07,GPIO_VIP,GPIO Controller,Pin Driver/Monitor,Digital I/O,50 MHz (clk),3,General-purpose I/O VIP verifying direction configuration atomic set/clear and pin level sampling

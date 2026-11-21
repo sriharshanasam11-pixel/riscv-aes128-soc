@@ -1,0 +1,12 @@
+Signal_Name,Direction_Master,Direction_Slave,Width,Active_Level,Description
+clk,In,In,1,Rising Edge,System clock reference (50 MHz nominal)
+rst_n,In,In,1,Low,Asynchronous system reset active-low
+wb_adr_i,Out,In,32,High,32-bit byte memory address driven by master
+wb_dat_i,Out,In,32,High,32-bit write data bus (Master Out Slave In)
+wb_dat_o,In,Out,32,High,32-bit read data bus (Slave Out Master In)
+wb_we_i,Out,In,1,High,Write enable: 1 = Write transaction 0 = Read transaction
+wb_sel_i,Out,In,4,High,Byte lane select indicators [3:0] for byte/half/word transfers
+wb_stb_i,Out,In,1,High,Strobe: indicates active phase of bus cycle for addressed slave
+wb_cyc_i,Out,In,1,High,Cycle: indicates valid bus transfer cycle in progress
+wb_ack_o,In,Out,1,High,Acknowledge: handshake response driven by selected slave
+wb_err_o,In,Out,1,High,Error: asserted on illegal unmapped address access

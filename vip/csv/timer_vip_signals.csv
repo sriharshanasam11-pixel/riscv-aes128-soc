@@ -1,0 +1,9 @@
+Signal_Name,Direction_DUT,Direction_VIP,Width,Offset,Description
+timer_count_val,Out,In,32,0x00,Real-time 32-bit counter register value
+timer_compare_val,In,Out,32,0x04,32-bit comparison threshold register for match generation
+timer_ctrl_en,In,Out,1,0x08 [0],Timer enable bit: 1 = Counter increments on prescaled clock
+timer_ctrl_reload,In,Out,1,0x08 [1],Auto-reload bit: 1 = Reset counter to 0 on match
+timer_ctrl_irq_en,In,Out,1,0x08 [2],Interrupt enable bit: 1 = Assert hardware IRQ on compare match
+timer_ctrl_match,Out,In,1,0x08 [3],Match flag indicator: set on threshold match (Write-1-to-Clear)
+timer_prescale_val,In,Out,16,0x0C,16-bit clock prescaler divisor (Tick rate = f_clk / (prescale+1))
+timer_irq_out,Out,In,1,N/A,Dedicated external interrupt line routed to CPU core

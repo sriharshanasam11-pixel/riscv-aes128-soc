@@ -1,0 +1,23 @@
+Test_ID,Subsystem,Test_Name,Test_Type,Verification_Method,Stimulus_Scenario,Expected_Result,Pass_Fail_Criteria
+TC_BUS_01,Interconnect,ROM_Read_Access,Internal,UVM / Directed,Read words from ROM address range 0x0000_0000 to 0x0000_003C,Valid instructions returned with ACK=1 in 1-2 cycles,Match assembled boot machine code
+TC_BUS_02,Interconnect,RAM_Byte_Access,Internal,UVM / Random,Perform byte half-word and word writes and reads with random data in RAM 0x2000_0000,Byte enables SEL[3:0] correctly preserve unaffected bytes,Exact data match on readback
+TC_BUS_03,Interconnect,Unmapped_Addr_Termination,Internal,UVM / Directed,Access unmapped bus address 0x5000_0000,Interconnect returns 0xDEADBEEF with single-cycle ACK,No CPU pipeline hang occurs
+TC_AES_01,AES-128,NIST_KAT_Encrypt,Internal,UVM / Directed,NIST FIPS-197 Key and Plaintext written to registers; Start pulse driven,Ciphertext matches 69c4e0d8_6a7b0430_d8cdb780_70b4c55a,100% bitwise ciphertext match
+TC_AES_02,AES-128,NIST_KAT_Decrypt,Internal,UVM / Directed,NIST Ciphertext written to DIN registers; Mode set to Decrypt (1); Start pulsed,Plaintext matches 00112233_44556677_8899aabb_ccddeeff,100% bitwise plaintext restored
+TC_AES_03,AES-128,Random_Roundtrip,Internal,UVM / Constrained Random,100 random 128-bit keys and plaintexts encrypted then decrypted,Decrypted output identically matches input for all seeds,Zero mismatches across all 100 runs
+TC_AES_04,AES-128,Latency_Measurement,Internal,Assertion / Timer,Measure clock cycles from START rising edge until DONE rising edge,Exact latency of 11 clock cycles per 128-bit block,Execution bounded within 11 cycles
+TC_AES_05,AES-128,Soft_Reset_Recovery,Internal,Directed,Assert soft reset during active round 5 calculation,Accelerator aborts immediately returns to IDLE status cleared,Busy deasserts valid=0 no hang
+TC_PRNG_01,PRNG,Seed_Injection,Internal,Directed,Write known 32-bit seed 0x12345678 into PRNG_SEED register and pulse reseed,Internal state updates to seed value,First sampled word reflects new seed
+TC_PRNG_02,PRNG,Xorshift_LFSR_Modes,Internal,UVM / Random,Sample 256 consecutive words in both LFSR and Xorshift32 modes,No repeating words within period non-zero output,Distinct sequence advancement
+TC_SPI_01,SPI,Loopback_Transfer,External,UVM / Pin-Level,Connect MOSI to MISO; transmit byte stream 0x55 0xAA 0x12 0x34 at clk_div=4,Received bytes in SPI_DATA match transmitted bytes,Zero bit error on full duplex loopback
+TC_SPI_02,SPI,Mode_CPOL_CPHA,External,Directed,Configure SPI Modes 0 1 2 and 3; transmit test patterns,SCK idle level and sample edge comply with CPOL/CPHA,Waveform clock phase/polarity match
+TC_SPI_03,SPI,CS_N_Framing,External,Assertion,Monitor CS_N pin transition during block transmission,CS_N stays strictly low during active 8-bit shift phases,No glitches on chip-select pin
+TC_UART_01,UART,Baud_Divider_Pacing,External,Directed,Program baud divisor to 434 (115200 baud); transmit character 'A',Bit duration precisely matches 434 clock cycles,Baud rate error < 1.5%
+TC_UART_02,UART,Frame_Format_8N1,External,UVM / Monitor,Capture UART TX serial stream on physical pin,Start bit (0) followed by 8 data bits LSB-first then Stop bit (1),Frame error flag remains zero
+TC_UART_03,UART,RX_Echo_Loopback,External,Pin-Level Stimulus,Drive external RX pin with serial byte 0x4B ('K') from VIP,RX_VALID asserts and UART_DATA contains 0x4B,Interrupt asserts if RX_IRQ_EN=1
+TC_TIMER_01,Timer,Prescaler_Count,Internal,Directed,Set prescaler to 9 (divide-by-10); allow 100 clock cycles,Timer counter increments by exactly 10 ticks,Strict prescaler frequency division
+TC_TIMER_02,Timer,Compare_Match_IRQ,Internal,Directed,Set compare threshold to 0x0000_0050; enable match interrupt,MATCH_FLAG sets and timer_irq asserts when count=0x50,Hardware IRQ asserted to CPU
+TC_GPIO_01,GPIO,Pin_Direction_Drive,External,Pin-Level Stimulus,Set GPIO_DIR=0x0000000F; write 0x0000000A to GPIO_OUTPUT,Physical output pins [3:0] drive 4'b1010; pins [31:4] remain Hi-Z,Logic level matches written bits
+TC_GPIO_02,GPIO,Atomic_Set_Clear,Internal,Directed,Use GPIO_SET=0x02 and GPIO_CLEAR=0x01 on current output state 0x01,Output changes to 0x02 without read-modify-write hazard,Atomic bit manipulation verified
+TC_SOC_01,Full_SoC,End_to_End_Boot_KAT,External,Software Firmware,CPU boots from ROM initializes all IPs runs AES KAT streams over SPI,UART prints 'PASS'; GPIO Pin 1 drives HIGH,Self-checking firmware passes in 118 cycles
+TC_SVA_01,System,Bus_Protocol_Assertions,Internal,SVA Checkers,Execute continuous random read/write bursts across all slaves,SVA assertions assert no hanging ACK stability and liveness,Zero SVA assertion failures

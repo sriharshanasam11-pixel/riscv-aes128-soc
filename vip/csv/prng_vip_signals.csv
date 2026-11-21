@@ -1,0 +1,7 @@
+Signal_Name,Direction_DUT,Direction_VIP,Width,Offset,Description
+prng_seed_in,In,Out,32,0x00,Seed injection register for initializing pseudo-random state
+prng_ctrl_en,In,Out,1,0x04 [0],PRNG enable control flag: 1 = Generator active
+prng_ctrl_reseed,In,Out,1,0x04 [1],Self-clearing reseed pulse reloading internal register from SEED
+prng_ctrl_algo,In,Out,1,0x04 [2],Algorithm select: 0 = Galois LFSR 1 = Marsaglia Xorshift32
+prng_status_rdy,Out,In,1,0x08 [0],Ready status flag indicating valid pseudo-random word is available
+prng_data_out,Out,In,32,0x0C,Current 32-bit pseudo-random output word (reading advances state)
